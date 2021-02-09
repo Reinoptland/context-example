@@ -9,9 +9,12 @@ export default function Login() {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault(); // no refresh
     console.log("credentials:", credentials);
+    const response = await loginRequest(credentials);
+
+    console.log(response.data);
   }
 
   console.log(credentials);
@@ -40,4 +43,16 @@ export default function Login() {
       </div>
     </div>
   );
+}
+
+async function loginRequest({ email, password }) {
+  switch (true) {
+    case email === "rein@rein.com" && password === "abcd":
+      return { data: { message: "ok", userId: 1 } };
+
+    default:
+      return {
+        data: { message: "error", errors: ["username or password incorrect"] },
+      };
+  }
 }
