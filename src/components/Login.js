@@ -6,24 +6,24 @@ export default function Login() {
   let [credentials, setCredentials] = useState({ email: "", password: "" });
 
   function handleInput(event) {
-    console.log("INPUT:", event.target.name, event.target.value);
+    // console.log("INPUT:", event.target.name, event.target.value);
 
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   }
 
   async function handleSubmit(event) {
     event.preventDefault(); // no refresh
-    console.log("credentials:", credentials);
+    // console.log("credentials:", credentials);
     const response = await loginRequest(credentials);
 
-    console.log("CONTEXT:", loginInfo);
-    console.log(response.data); // we got a userId!
+    // console.log("CONTEXT:", loginInfo);
+    // console.log(response.data); // we got a userId!
     // loginInfo.userId = response.data.userId; // NO! does not tell react to rerender
-    console.log("CONTEXT:", loginInfo);
+    // console.log("CONTEXT:", loginInfo);
     loginInfo.setUserId(response.data.userId);
   }
 
-  console.log(credentials);
+  // console.log(credentials);
 
   return (
     <div>
