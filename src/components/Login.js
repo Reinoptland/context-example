@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
 
-export default function Login() {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+export default function Login(props) {
+  const loginInfo = useContext(AuthContext);
+  let [credentials, setCredentials] = useState({ email: "", password: "" });
 
   function handleInput(event) {
     console.log("INPUT:", event.target.name, event.target.value);
@@ -14,7 +16,11 @@ export default function Login() {
     console.log("credentials:", credentials);
     const response = await loginRequest(credentials);
 
-    console.log(response.data);
+    console.log("CONTEXT:", loginInfo);
+    console.log(response.data); // we got a userId!
+    // loginInfo.userId = response.data.userId; // NO! does not tell react to rerender
+    props.setUserId(response.data.userId);
+    console.log("CONTEXT:", loginInfo);
   }
 
   console.log(credentials);

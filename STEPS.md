@@ -1,9 +1,9 @@
 # STEPS
 
-- [ ] Make some components
-  - [ ] login
-  - [ ] todoList
-  - [ ] todos
+- [x] Make some components
+  - [x] login
+  - [x] todoList
+  - [x] todos
 
 ## Make context
 
