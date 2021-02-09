@@ -7,7 +7,7 @@
 
 // More sophisticated way
 
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const AuthContext = createContext({});
 
@@ -19,4 +19,9 @@ export function AuthProvider(props) {
       {props.children}
     </AuthContext.Provider>
   );
+}
+
+// custom hook to consume the data
+export default function useAuth() {
+  return useContext(AuthContext);
 }

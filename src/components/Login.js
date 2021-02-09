@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import React, { useState } from "react";
+import useAuth from "../contexts/AuthContext";
 
-export default function Login(props) {
-  const loginInfo = useContext(AuthContext);
+export default function Login() {
+  const loginInfo = useAuth();
   let [credentials, setCredentials] = useState({ email: "", password: "" });
 
   function handleInput(event) {
