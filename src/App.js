@@ -6,15 +6,13 @@ import TodoList from "./components/TodoList";
 import AuthContext from "./contexts/AuthContext";
 
 function App() {
-  // fucking callback props!! :(
   const [userId, setUserId] = useState(null); // move it to a dedicated component
   console.log("WHAT IS A CONTEXT?:", AuthContext);
-  // Harcoding a userId that we are going to provide to the app
   return (
-    <AuthContext.Provider value={{ userId: userId }}>
+    <AuthContext.Provider value={{ userId: userId, setUserId: setUserId }}>
       <div className="App">
         <header className="App-header">
-          <Login setUserId={setUserId} />
+          <Login />
           <TodoList />
         </header>
       </div>

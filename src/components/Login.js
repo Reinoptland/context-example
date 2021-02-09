@@ -19,8 +19,8 @@ export default function Login(props) {
     console.log("CONTEXT:", loginInfo);
     console.log(response.data); // we got a userId!
     // loginInfo.userId = response.data.userId; // NO! does not tell react to rerender
-    props.setUserId(response.data.userId);
     console.log("CONTEXT:", loginInfo);
+    loginInfo.setUserId(response.data.userId);
   }
 
   console.log(credentials);
